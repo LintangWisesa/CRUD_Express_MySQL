@@ -4,21 +4,20 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json())
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'lintang',
-    password: '12345',
-    database: 'ecommerce'
+    host: 'sql12.freesqldatabase.com',
+    user: 'sql12259834@ec2-52-8-112-233.us-west-1.compute.amazonaws.com',
+    password: 'tsubasaozorA300414',
+    database: 'sql12259834',
 })
 db.connect(()=>{
-    console.log('Konek ke MySQL!')
+    console.log('Terhubung ke MySQL!')
 });
 
 // route get all data
 router.get('/data', (req, res)=>{
-    var perintah = 
-    `select * from produk_mainan`;
+    var perintah = 'select * from lintangiot';
     db.query(perintah, (error, hasil)=>{
-        if(error) throw error;
+        // if(error) throw error;
         console.log(hasil);
         res.send(hasil);
     })
